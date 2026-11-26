@@ -123,10 +123,11 @@ function drawWatermarkOnContext(
     ctx.font = `600 ${fontSize}px Manrope, sans-serif`
     const stepX = Math.max(200, width * 0.42)
     const stepY = Math.max(130, height * 0.22)
+    const bound = Math.ceil(Math.hypot(width, height))
     ctx.translate(width / 2, height / 2)
     ctx.rotate(-Math.PI / 6)
-    for (let y = -height; y <= height; y += stepY) {
-      for (let x = -width; x <= width; x += stepX) {
+    for (let y = -bound; y <= bound; y += stepY) {
+      for (let x = -bound; x <= bound; x += stepX) {
         ctx.fillText(text, x, y)
       }
     }

@@ -521,27 +521,42 @@ export function PdfWorkspace({ onNotify, incomingFiles }: PdfWorkspaceProps) {
                     {watermark.text}
                   </span>
                 ) : (
-                  <div
+                  <svg
+                    width="100%"
+                    height="100%"
                     style={{
                       position: 'absolute',
-                      inset: '-45%',
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(4, 1fr)',
-                      alignContent: 'center',
-                      justifyItems: 'center',
-                      gap: '64px 36px',
-                      transform: 'rotate(-30deg)',
-                      color: `rgba(180, 35, 35, ${watermark.opacity})`,
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      whiteSpace: 'nowrap',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      pointerEvents: 'none',
                       userSelect: 'none',
                     }}
                   >
-                    {Array.from({ length: 28 }).map((_, i) => (
-                      <span key={i}>{watermark.text}</span>
-                    ))}
-                  </div>
+                    <defs>
+                      <pattern
+                        id="pdf-wm-tile"
+                        width={Math.max(210, watermark.text.length * 12 + 56)}
+                        height="115"
+                        patternUnits="userSpaceOnUse"
+                        patternTransform="rotate(-30)"
+                      >
+                        <text
+                          x="50%"
+                          y="50%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          fill={`rgba(180, 35, 35, ${watermark.opacity})`}
+                          fontFamily="Manrope, sans-serif"
+                          fontWeight="600"
+                          fontSize="15"
+                        >
+                          {watermark.text}
+                        </text>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#pdf-wm-tile)" />
+                  </svg>
                 )}
               </div>
             )}

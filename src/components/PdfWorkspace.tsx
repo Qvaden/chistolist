@@ -502,9 +502,10 @@ export function PdfWorkspace({ onNotify, incomingFiles }: PdfWorkspaceProps) {
                   position: 'absolute',
                   inset: 0,
                   pointerEvents: 'none',
-                  display: 'grid',
-                  placeItems: 'center',
                   overflow: 'hidden',
+                  ...(watermark.mode === 'center'
+                    ? { display: 'grid', placeItems: 'center' }
+                    : {}),
                 }}
               >
                 {watermark.mode === 'center' ? (
@@ -521,42 +522,47 @@ export function PdfWorkspace({ onNotify, incomingFiles }: PdfWorkspaceProps) {
                     {watermark.text}
                   </span>
                 ) : (
-                  <svg
-                    width="100%"
-                    height="100%"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      width: '100%',
-                      height: '100%',
-                      pointerEvents: 'none',
-                      userSelect: 'none',
-                    }}
-                  >
-                    <defs>
-                      <pattern
-                        id="pdf-wm-tile"
-                        width={Math.max(210, watermark.text.length * 12 + 56)}
-                        height="115"
-                        patternUnits="userSpaceOnUse"
-                        patternTransform="rotate(-30)"
+                  (() => {
+                    const tileW = Math.max(220, watermark.text.length * 11 + 56)
+                    const tileH = 115
+                    return (
+                      <svg
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          width: '100%',
+                          height: '100%',
+                          display: 'block',
+                          pointerEvents: 'none',
+                          userSelect: 'none',
+                        }}
                       >
-                        <text
-                          x="50%"
-                          y="50%"
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fill={`rgba(180, 35, 35, ${watermark.opacity})`}
-                          fontFamily="Manrope, sans-serif"
-                          fontWeight="600"
-                          fontSize="15"
-                        >
-                          {watermark.text}
-                        </text>
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#pdf-wm-tile)" />
-                  </svg>
+                        <defs>
+                          <pattern
+                            id="pdf-wm-tile"
+                            width={tileW}
+                            height={tileH}
+                            patternUnits="userSpaceOnUse"
+                            patternTransform="rotate(-30)"
+                          >
+                            <text
+                              x={tileW / 2}
+                              y={tileH / 2}
+                              textAnchor="middle"
+                              dominantBaseline="central"
+                              fill={`rgba(180, 35, 35, ${watermark.opacity})`}
+                              fontFamily="Manrope, sans-serif"
+                              fontWeight="600"
+                              fontSize="15"
+                            >
+                              {watermark.text}
+                            </text>
+                          </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#pdf-wm-tile)" />
+                      </svg>
+                    )
+                  })()
                 )}
               </div>
             )}

@@ -1,0 +1,75 @@
+:root {
+  /* Core Palette — Midnight Indigo & Luminous Cobalt */
+  --bg-canvas: #090D16;
+  --bg-surface: rgba(17, 24, 39, 0.82);
+  --bg-surface-solid: #111827;
+  --bg-elevated: #161F30;
+  --bg-hover: #1E2A40;
+
+  --border-subtle: rgba(148, 175, 215, 0.14);
+  --border-strong: rgba(148, 175, 215, 0.28);
+  --specular-top: rgba(255, 255, 255, 0.08);
+
+  --ink-primary: #F4F7FB;
+  --ink-secondary: #98A8C2;
+  --ink-muted: #667896;
+
+  --accent-primary: #4F7BFF;
+  --accent-primary-hover: #678FFF;
+  --accent-glow: rgba(79, 123, 255, 0.28);
+  --accent-ink: #FFFFFF;
+
+  --platinum-bg: #4F7BFF;
+  --platinum-bg-hover: #678FFF;
+  --platinum-ink: #FFFFFF;
+
+  --signal-secure: #10D990;
+  --signal-secure-dim: rgba(16, 217, 144, 0.13);
+  --signal-pro: #F5B041;
+  --signal-pro-dim: rgba(245, 176, 65, 0.13);
+  --signal-danger: #F45D6A;
+  --signal-danger-dim: rgba(244, 93, 106, 0.14);
+
+  /* Typography */
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Geometry */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-panel: inset 0 1px 0 var(--specular-top), 0 16px 40px rgba(3, 6, 14, 0.48);
+  --shadow-modal: inset 0 1px 0 var(--specular-top), 0 28px 72px rgba(2, 4, 10, 0.72), 0 0 0 1px var(--border-strong);
+
+  /* Timing */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-theme='light'] {
+  --bg-canvas: #F3F6FB;
+  --bg-surface: rgba(255, 255, 255, 0.9);
+  --bg-surface-solid: #FFFFFF;
+  --bg-elevated: #EDF2FA;
+  --bg-hover: #E2EAF6;
+
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.22);
+  --specular-top: rgba(255, 255, 255, 0.95);
+
+  --ink-primary: #0F172A;
+  --ink-secondary: #475569;
+  --ink-muted: #64748B;
+
+  --signal-secure: #059669;
+  --signal-secure-dim: rgba(5, 150, 105, 0.12);
+  --signal-pro: #D97706;
+  --signal-pro-dim: rgba(217, 119, 6, 0.12);
+  --signal-danger: #DC2626;
+  --signal-danger-dim: rgba(220, 38, 38, 0.11);
+
+  --shadow-panel: inset 0 1px 0 var(--specular-top), 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-modal: inset 0 1px 0 var(--specular-top), 0 24px 60px rgba(15, 23, 42, 0.2), 0 0 0 1px var(--border-strong);
+}

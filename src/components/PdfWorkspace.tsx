@@ -523,10 +523,14 @@ export function PdfWorkspace({ onNotify, incomingFiles }: PdfWorkspaceProps) {
                 ) : (
                   <div
                     style={{
+                      position: 'absolute',
+                      inset: '-45%',
                       display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '48px 28px',
-                      transform: 'rotate(-30deg) scale(1.2)',
+                      gridTemplateColumns: 'repeat(4, 1fr)',
+                      alignContent: 'center',
+                      justifyItems: 'center',
+                      gap: '64px 36px',
+                      transform: 'rotate(-30deg)',
                       color: `rgba(180, 35, 35, ${watermark.opacity})`,
                       fontWeight: 600,
                       fontSize: '15px',
@@ -534,7 +538,7 @@ export function PdfWorkspace({ onNotify, incomingFiles }: PdfWorkspaceProps) {
                       userSelect: 'none',
                     }}
                   >
-                    {Array.from({ length: 12 }).map((_, i) => (
+                    {Array.from({ length: 28 }).map((_, i) => (
                       <span key={i}>{watermark.text}</span>
                     ))}
                   </div>

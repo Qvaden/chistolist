@@ -909,7 +909,12 @@ button {
 
 @media (max-width: 1120px) {
   .pdf-studio {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pdf-studio > * {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .thumb-rail {

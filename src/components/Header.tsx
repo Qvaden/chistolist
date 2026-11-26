@@ -159,7 +159,7 @@ export function Header({ activeTab, onSelectTab, theme, onToggleTheme }: HeaderP
         >
           <span className="telemetry-dot" aria-hidden="true" />
           <span>Локально</span>
-          <span className="telemetry-bytes tabular">0 Б в сеть</span>
+          <span className="telemetry-bytes tabular">0 Б файлов</span>
         </div>
 
         <button

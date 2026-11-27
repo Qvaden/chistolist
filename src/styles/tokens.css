@@ -41,7 +41,16 @@
   --radius-pill: 999px;
 
   /* Elevation */
-  --shadow-panel: inset 0 1px 0 var(--specular-top), 0 16px 40px rgba(3, 6, 14, 0.48);
+  --shadow-border:
+    0 0 0 1px oklch(1 0 0 / 0.08),
+    inset 0 1px 0 oklch(1 0 0 / 0.06),
+    0 12px 32px rgba(3, 6, 14, 0.36);
+  --shadow-border-hover:
+    0 0 0 1px oklch(1 0 0 / 0.14),
+    inset 0 1px 0 oklch(1 0 0 / 0.08),
+    0 14px 36px rgba(3, 6, 14, 0.44);
+  --image-outline: oklch(1 0 0 / 0.1);
+  --shadow-panel: var(--shadow-border);
   --shadow-modal: inset 0 1px 0 var(--specular-top), 0 28px 72px rgba(2, 4, 10, 0.72), 0 0 0 1px var(--border-strong);
 
   /* Timing */
@@ -70,6 +79,15 @@
   --signal-danger: #DC2626;
   --signal-danger-dim: rgba(220, 38, 38, 0.11);
 
-  --shadow-panel: inset 0 1px 0 var(--specular-top), 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-border:
+    0 0 0 1px oklch(0 0 0 / 0.06),
+    0 1px 2px -1px oklch(0 0 0 / 0.06),
+    0 2px 4px 0 oklch(0 0 0 / 0.04);
+  --shadow-border-hover:
+    0 0 0 1px oklch(0 0 0 / 0.09),
+    0 2px 4px -1px oklch(0 0 0 / 0.08),
+    0 4px 8px 0 oklch(0 0 0 / 0.06);
+  --image-outline: oklch(0 0 0 / 0.1);
+  --shadow-panel: var(--shadow-border);
   --shadow-modal: inset 0 1px 0 var(--specular-top), 0 24px 60px rgba(15, 23, 42, 0.2), 0 0 0 1px var(--border-strong);
 }

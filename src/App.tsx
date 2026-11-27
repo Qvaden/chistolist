@@ -13,6 +13,35 @@ export interface IncomingFilesPayload {
 }
 
 const THEME_STORAGE_KEY = 'chistolist_theme'
+const VALID_TABS: readonly WorkspaceTab[] = ['tables', 'pdf', 'photos', 'anonymizer', 'diff']
+
+const TAB_TITLES: Record<WorkspaceTab, string> = {
+  tables: 'ЧистоЛист — Очистка Excel и CSV без загрузки на сервер',
+  pdf: 'ЧистоЛист — Замазывание данных и водяные знаки в PDF локально',
+  photos: 'ЧистоЛист — Удаление EXIF/GPS с фото и сборка в PDF',
+  anonymizer: 'ЧистоЛист — Анонимайзер текста для нейросетей (ChatGPT, Claude)',
+  diff: 'ЧистоЛист — Сравнение двух версий текста и договоров',
+}
+
+declare global {
+  interface Window {
+    goatcounter?: {
+      count: (vars?: { path?: string; title?: string; event?: boolean }) => void
+    }
+  }
+}
+
+function getInitialTab(): WorkspaceTab {
+  try {
+    const param = new URLSearchParams(window.location.search).get('tab')
+    if (param && (VALID_TABS as readonly string[]).includes(param)) {
+      return param as WorkspaceTab
+    }
+  } catch {
+    // ignore
+  }
+  return 'tables'
+}
 
 function getInitialTheme(): 'dark' | 'light' {
   try {
@@ -25,7 +54,8 @@ function getInitialTheme(): 'dark' | 'light' {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<WorkspaceTab>('tables')
+  const [activeTab, setActiveTab] = useState<WorkspaceTab>(getInitialTab)
+  const isFirstTabRenderRef = useRef(true)
   const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme)
   const [toasts, setToasts] = useState<ToastMessage[]>([])
   const [isGlobalDragging, setIsGlobalDragging] = useState(false)
@@ -55,6 +85,30 @@ export default function App() {
       // ignore
     }
   }, [theme])
+
+  useEffect(() => {
+    document.title = TAB_TITLES[activeTab]
+
+    try {
+      const url = new URL(window.location.href)
+      if (url.searchParams.get('tab') !== activeTab) {
+        url.searchParams.set('tab', activeTab)
+        window.history.replaceState(null, '', url.toString())
+      }
+    } catch {
+      // ignore
+    }
+
+    if (isFirstTabRenderRef.current) {
+      isFirstTabRenderRef.current = false
+      return
+    }
+
+    window.goatcounter?.count({
+      path: `/?tab=${activeTab}`,
+      title: TAB_TITLES[activeTab],
+    })
+  }, [activeTab])
 
   // Alt+1..5 quick tab shortcuts
   useEffect(() => {

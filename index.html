@@ -10,12 +10,86 @@
     <title>ЧистоЛист — Локальный комбайн для Excel, PDF, фото и текстов без облака</title>
     <meta
       name="description"
-      content="ЧистоЛист — бесплатный приватный комбайн в браузере: очистка Excel/CSV, защита PDF, удаление EXIF/GPS с фото, анонимайзер текста и сравнение редакций. 0 байт на сервер."
+      content="ЧистоЛист — бесплатный приватный комбайн в браузере: очистка Excel/CSV, необратимое замазывание PDF, удаление EXIF/GPS с фото, анонимайзер текста для нейросетей и сравнение редакций. 0 байт на сервер."
     />
+    <link rel="canonical" href="https://chistolist.bond/" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="ЧистоЛист" />
+    <meta property="og:url" content="https://chistolist.bond/" />
+    <meta
+      property="og:title"
+      content="ЧистоЛист — приватный комбайн для Excel, PDF, фото и текстов"
+    />
+    <meta
+      property="og:description"
+      content="Чистка Excel и CSV, замазывание данных в PDF, удаление EXIF с фото, анонимайзер текста для ИИ и сравнение редакций. Всё работает локально в браузере — 0 байт на сервер."
+    />
+    <meta property="og:image" content="https://chistolist.bond/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ЧистоЛист — приватный офисный комбайн без облака" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ЧистоЛист — приватный комбайн для Excel, PDF, фото и текстов"
+    />
+    <meta
+      name="twitter:description"
+      content="Очистка Excel/CSV, защита PDF, удаление EXIF/GPS с фото, анонимайзер текста для нейросетей и сравнение версий. Бесплатно, без регистрации и отправки файлов на сервер."
+    />
+    <meta name="twitter:image" content="https://chistolist.bond/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ЧистоЛист",
+        "url": "https://chistolist.bond/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "ru",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB"
+        },
+        "description": "Приватный веб-комбайн для очистки Excel/CSV, замазывания PDF, удаления EXIF/GPS с фото, анонимизации текста перед отправкой в нейросети и сравнения редакций полностью на стороне браузера.",
+        "featureList": [
+          "Очистка Excel и CSV от дублей, пустых строк и нормализация номеров телефонов",
+          "Необратимое замазывание данных в PDF и наложение водяных знаков",
+          "Удаление EXIF и GPS-метаданных с фотографий и сборка в PDF",
+          "Локальный анонимайзер текста (паспорта, ИНН, СНИЛС, телефоны, email) с обратной расшифровкой",
+          "Пословное сравнение двух версий текста"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main style="max-width: 720px; margin: 40px auto; padding: 0 20px; font-family: sans-serif">
+        <h1>ЧистоЛист — приватный офисный комбайн без облака</h1>
+        <p>
+          Бесплатный сервис для работы с таблицами, документами, фотографиями и текстом полностью
+          внутри браузера. Файлы никуда не загружаются.
+        </p>
+        <ul>
+          <li><strong>Таблицы (Excel / CSV):</strong> удаление дублей, чистка пробелов, приведение телефонов к единому формату, разбивка ФИО.</li>
+          <li><strong>PDF:</strong> необратимое замазывание паспортных данных и подписей, водяные знаки, склейка и удаление страниц.</li>
+          <li><strong>Фото и сканы:</strong> просмотр и удаление EXIF/GPS, сжатие, сборка изображений в PDF.</li>
+          <li><strong>Анонимайзер текста:</strong> замена персональных данных на заглушки перед отправкой в ИИ и возврат обратно.</li>
+          <li><strong>Сравнение редакций:</strong> подсветка отличий между двумя версиями договора или текста.</li>
+        </ul>
+        <p>Для работы инструментов включите JavaScript в браузере.</p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
     <script
       data-goatcounter="https://chistolist.goatcounter.com/count"

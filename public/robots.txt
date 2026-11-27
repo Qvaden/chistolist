@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chistolist.bond/sitemap.xml
+Host: https://chistolist.bond
